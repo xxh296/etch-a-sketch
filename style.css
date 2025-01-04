@@ -3,25 +3,19 @@
     padding: 0;
     border: 0;
     background-color: black;
-    color: ivory;
+    color: aliceblue;
+}
+
+button {
+    border: 2px solid aliceblue;
+    margin: 10px;
+    padding: 5px;
+    border-radius: 3px;
 }
 
 #container {
     display: flex;
-    flex-wrap: wrap;
-    border: 1px solid red;
-    
+    flex-wrap: wrap;    
+    border: 1px solid aliceblue;   
+    border-radius: 3px; 
 }
-
-/*
-// this does not work 
-// color doesn't persist on unhover
-
-div {
-    background: black
-}
-
-div:hover {
-    background: white;
-}
-    */

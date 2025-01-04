@@ -1,23 +1,39 @@
 const container = document.querySelector("#container");
-// TODO : inconsistent sizing
-container.style.width = "980px";
-// TODO - get from user later
+container.style.width = "960px";
+
 let columnsNumber = 64;
 
-//placing divs in a grid
-for (let i = 0; i < columnsNumber*columnsNumber; i++) {
-    const div = document.createElement("div");  
-    
-    div.style.border = "1px solid blue"; 
-    
-    div.style.width = 960 / columnsNumber + "px";
-    div.style.height = 960 / columnsNumber + "px";
-    div.style.aspectRatio = 1/1;
-    div.style.display = "flex";
-    div.style.flexGrow = "1";
+// reset with a columnsNumber supplied by user
+const resetBtn = document.querySelector("#resetBtn");
+resetBtn.addEventListener("click", () => collectColumnsNumber());
 
-    div.addEventListener("mouseover", () => div.style.backgroundColor = "white");
-    
-    container.appendChild(div);    
-    div.id = "div" + i;
+function collectColumnsNumber() {
+    let rawInput = parseInt(prompt("Enter a valid number (<=100), or accept the default: ", "64"));
+    while (isNaN(rawInput) || rawInput < 0 || rawInput > 100) {
+        rawInput = parseInt(prompt("Enter a valid number (<=100), or accept the default: ", "64"));
+    }
+    columnsNumber = rawInput;
+    placeDivs();    
 }
+
+//placing divs in a grid
+function placeDivs() {
+    //clear any existing divs first
+    container.innerHTML = "";
+
+    for (let i = 0; i < columnsNumber*columnsNumber; i++) {
+        const div = document.createElement("div");  
+        
+        div.style.width = 960 / columnsNumber + "px";
+        div.style.height = 960 / columnsNumber + "px";
+        div.style.aspectRatio = 1/1;
+        div.style.display = "block";
+
+        div.addEventListener("mouseover", () => div.style.backgroundColor = "white");
+        
+        container.appendChild(div);    
+        //div.id = "div" + i;
+    }
+}
+
+placeDivs();
