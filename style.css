@@ -1,6 +1,27 @@
 * {
     margin: 0;
     padding: 0;
-    background-color: gray;
+    border: 0;
+    background-color: black;
     color: ivory;
 }
+
+#container {
+    display: flex;
+    flex-wrap: wrap;
+    border: 1px solid red;
+    
+}
+
+/*
+// this does not work 
+// color doesn't persist on unhover
+
+div {
+    background: black
+}
+
+div:hover {
+    background: white;
+}
+    */
