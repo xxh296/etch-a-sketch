@@ -29,11 +29,17 @@ function placeDivs() {
         div.style.aspectRatio = 1/1;
         div.style.display = "block";
 
-        div.addEventListener("mouseover", () => div.style.backgroundColor = "white");
+        div.addEventListener("mouseover", () => div.style.backgroundColor = randomizeColor());
         
         container.appendChild(div);    
         //div.id = "div" + i;
     }
+}
+
+function randomizeColor() {
+    return "rgb(" + Math.round(Math.random()*100) + " " 
+        + Math.round(Math.random()*100) + " " 
+        + Math.round(Math.random()*100) + ")";
 }
 
 placeDivs();
